@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.scss';
+import { fetchGithubUsers } from './services/github/github.service';
 
 function App() {
+
+  useEffect(() => {
+    fetchGithubUsers("jerry", "users", 1, 100)
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
