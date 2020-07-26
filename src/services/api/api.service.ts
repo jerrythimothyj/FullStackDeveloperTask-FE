@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Subject } from "rxjs"
+import _ from "lodash"
+import { showToasterSubject } from "../toaster/toaster.service"
 
 const instance = axios.create({
     baseURL: "http://localhost:4100/api/"
@@ -16,6 +18,7 @@ instance.interceptors.request.use(function (config) {
 }, function (error) {
     showLoaderCount--;
     showLoaderCountSubject.next(showLoaderCount)
+    showToasterSubject.next({ type: 'error', value: JSON.stringify(error.response.data) })
 
     return Promise.reject(error)
 })
@@ -28,6 +31,7 @@ instance.interceptors.response.use(function (config) {
 }, function (error) {
     showLoaderCount--;
     showLoaderCountSubject.next(showLoaderCount)
+    showToasterSubject.next({ type: 'error', value: _.join(_.map(error.response.data.errors, _.property('msg')), "\n\n") })
 
     return Promise.reject(error)
 })
