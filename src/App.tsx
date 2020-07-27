@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Loader from "react-loader"
 import { ToastContainer, toast } from "react-toastify"
 import logo from './logo.svg';
-import { fetchGithubUsers } from './services/github/github.service';
+// import { fetchGithubUsers } from './services/github/github.service';
 import { showLoaderCountState } from './services/api/api.service';
 import { showToasterState } from './services/toaster/toaster.service';
 import "react-toastify/dist/ReactToastify.css"
 import './App.scss';
+import { Github } from './containers/github/github.container';
 
 function App() {
 
@@ -30,27 +31,14 @@ function App() {
           break;
       }
     })
-    fetchGithubUsers("tim", "users", 1, 100)
+    // fetchGithubUsers("tim", "users", 1, 100)
   }, [])
 
   return (
     <div className="App">
       <Loader loaded={!isShowLoader}></Loader>
       <ToastContainer />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Github />
     </div>
   );
 }
