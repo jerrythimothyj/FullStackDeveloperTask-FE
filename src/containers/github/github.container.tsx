@@ -10,26 +10,18 @@ export const Github = () => {
     const usersData = useSelector((state: any) => state.githubReducer.data)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(getData(searchCriteria))
-    }, [])
-
-    const handleEntityChange = useCallback((event: any) => {
-        dispatch(getData({ ...searchCriteria, type: event.target.value }))
-    }, [searchCriteria])
-
-    const handleTextChange = useCallback((event: any) => {
-        dispatch(getData({ ...searchCriteria, text: event.target.value }))
+    const handleChange = useCallback((event: any, field) => {
+        dispatch(getData({ ...searchCriteria, [field]: event.target.value }))
     }, [searchCriteria])
 
     return (
         <div>
-            <select onChange={handleEntityChange} value={searchCriteria.type}>
+            <select onChange={(event) => handleChange(event, 'type')} value={searchCriteria.type}>
                 <option value="users">Users</option>
                 <option value="repositories">Repositories</option>
                 <option value="issues">Issues</option>
             </select>
-            <input type="text" onChange={handleTextChange} value={searchCriteria.text} />
+            <input type="text" onChange={(event) => handleChange(event, 'text')} value={searchCriteria.text} />
             {_.map(usersData && usersData.items, (item, index) => {
                 return <div key={index}>{item.login}</div>
             })}

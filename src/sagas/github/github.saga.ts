@@ -11,9 +11,14 @@ const fetchData = async (searchCriteria: any) => {
 }
 
 function* getListSaga(data: any) {
-    yield put({ type: actionTypes.DATA_PROCESSING });
-    const payload = yield call(fetchData, data.searchCriteria);
-    yield put({ type: actionTypes.DATA_LOADED, payload });
+    if (data.searchCriteria.text && data.searchCriteria.text.length >= 3) {
+        yield put({ type: actionTypes.DATA_PROCESSING });
+        const payload = yield call(fetchData, data.searchCriteria);
+        yield put({ type: actionTypes.DATA_LOADED, payload });
+    } else {
+        yield put({ type: actionTypes.DATA_PROCESSING });
+        yield put({ type: actionTypes.DATA_LOADED, payload: {} });
+    }
 }
 
 export default function* watcherSaga() {
