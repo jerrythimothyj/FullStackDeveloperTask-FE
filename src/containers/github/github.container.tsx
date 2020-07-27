@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { getData } from '../../actions/github/github.action'
 import _ from "lodash";
-import { count } from "console";
 
 export const Github = () => {
 
