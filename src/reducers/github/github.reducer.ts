@@ -4,7 +4,7 @@ import {
 
 const initialState = {
     data: {},
-    searchCriteria: {}
+    searchCriteria: { text: "jer", type: "users", page: 1, per_page: 100 }
 };
 
 export const githubReducer = (state = initialState, action: any) => {
