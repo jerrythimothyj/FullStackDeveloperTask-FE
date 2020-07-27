@@ -21,7 +21,7 @@ export const Github = () => {
                 <option value="repositories">Repositories</option>
                 <option value="issues">Issues</option>
             </select>
-            <input type="text" onChange={(event) => handleChange(event, 'text')} value={searchCriteria.text} />
+            <input type="search" onChange={(event) => handleChange(event, 'text')} value={searchCriteria.text} />
             {_.map(usersData && usersData.items, (item, index) => {
                 return <div key={index}>{item.login}</div>
             })}
