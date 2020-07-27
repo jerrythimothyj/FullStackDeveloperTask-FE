@@ -1,0 +1,5 @@
+export const actionTypes = {
+    DATA_REQUESTED: 'DATA_REQUESTED',
+    DATA_PROCESSING: 'DATA_PROCESSING',
+    DATA_LOADED: 'DATA_LOADED'
+} 
