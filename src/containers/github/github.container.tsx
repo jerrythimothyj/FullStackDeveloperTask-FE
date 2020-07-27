@@ -15,8 +15,8 @@ export const Github = () => {
 
     return (
         <div>
-            {_.map(usersData && usersData.items, (item) => {
-                return <div>{item.login}</div>
+            {_.map(usersData && usersData.items, (item, index) => {
+                return <div key={index}>{item.login}</div>
             })}
         </div>
     );
