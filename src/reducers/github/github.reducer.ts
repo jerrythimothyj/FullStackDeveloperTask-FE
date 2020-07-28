@@ -5,14 +5,16 @@ import {
 import _ from 'lodash';
 
 const initialState = {
-    persistedState: {},
+    persistedState: {
+        stagedSearchCriteria: { text: "jer", type: "users", page: 1, per_page: 100 },
+        searchCriteria: { text: "", type: "users", page: 1, per_page: 100 }
+    },
     data: {},
-    searchCriteria: {},
+    searchCriteria: { text: "", type: "users", page: 1, per_page: 100 },
     stagedSearchCriteria: { text: "jer", type: "users", page: 1, per_page: 100 }
 };
 
 export const githubReducer = (state = initialState, action: any) => {
-    console.log(action, state);
     switch (action.type) {
         case actionTypes.DATA_REQUESTED:
             return { ...state }
@@ -21,11 +23,10 @@ export const githubReducer = (state = initialState, action: any) => {
         case actionTypes.DATA_LOADED:
             return { ...state, data: action.data, searchCriteria: action.stagedSearchCriteria }
         case actionTypes.STAGE_SEARCH_CRITERIA:
-            return { ...state, stagedSearchCriteria: action.stagedSearchCriteria }
+            return { ...state, stagedSearchCriteria: { ...state.stagedSearchCriteria, [action.field]: action.value } }
         case actionTypes.GET_PERSISTED_DATA:
             return { ...state, ...state.persistedState }
         case REHYDRATE:
-            console.log('came here but not working');
             return {
                 ...state, persistedState: action.payload && _.pick(action.payload.githubReducer,
                     ['data', 'searchCriteria', 'stagedSearchCriteria']

@@ -4,10 +4,7 @@ import { fetchData, stageSearchCriteria, getPersisterData } from '../../actions/
 import _ from "lodash";
 
 export const Github = () => {
-
-    // const stagedSearchCriteria = useSelector((state: any) => state.githubReducer.stagedSearchCriteria)
     const stagedSearchCriteria = useSelector((state: any) => state.githubReducer.stagedSearchCriteria)
-    const searchCriteria = useSelector((state: any) => state.githubReducer.searchCriteria)
     const usersData = useSelector((state: any) => state.githubReducer.data)
     const dispatch = useDispatch()
 
@@ -17,7 +14,7 @@ export const Github = () => {
     }, []);
 
     const handleChange = useCallback((event: any, field) => {
-        dispatch(stageSearchCriteria({ ...stagedSearchCriteria, [field]: event.target.value }))
+        dispatch(stageSearchCriteria(field, event.target.value))
         search()
     }, [])
 

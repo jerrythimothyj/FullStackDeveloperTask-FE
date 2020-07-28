@@ -1,9 +1,12 @@
 import { actionTypes } from "../../constants/github/github.constant";
 
-export const stageSearchCriteria = (stagedSearchCriteria: any) => ({
-    type: actionTypes.STAGE_SEARCH_CRITERIA,
-    stagedSearchCriteria
-})
+export const stageSearchCriteria = (field: string, value: string) => {
+    return {
+        type: actionTypes.STAGE_SEARCH_CRITERIA,
+        field,
+        value
+    }
+}
 
 export const fetchData = () => ({
     type: actionTypes.DATA_REQUESTED

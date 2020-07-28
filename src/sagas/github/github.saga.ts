@@ -3,6 +3,7 @@ import {
     actionTypes
 } from "../../constants/github/github.constant";
 import { ajaxPost } from "../../services/api/api.service";
+import _ from "lodash";
 
 
 const fetchData = async (searchCriteria: any) => {
@@ -10,18 +11,22 @@ const fetchData = async (searchCriteria: any) => {
     return fetchData.data
 }
 
-const getSearchCriteria = (state: any) => state.githubReducer.stagedSearchCriteria
+const getStagedSearchCriteria = (state: any) => state.githubReducer.stagedSearchCriteria
+const getSearchCriteria = (state: any) => state.githubReducer.searchCriteria
 
 function* fetchDataSaga() {
-    const stagedSearchCriteria = yield select(getSearchCriteria)
+    const stagedSearchCriteria = yield select(getStagedSearchCriteria)
+    const searchCriteria = yield select(getSearchCriteria)
 
-    if (stagedSearchCriteria && stagedSearchCriteria.text && stagedSearchCriteria.text.length >= 3) {
-        yield put({ type: actionTypes.DATA_PROCESSING, stagedSearchCriteria });
-        const data = yield call(fetchData, stagedSearchCriteria);
-        yield put({ type: actionTypes.DATA_LOADED, data, stagedSearchCriteria });
-    } else {
-        yield put({ type: actionTypes.DATA_PROCESSING });
-        yield put({ type: actionTypes.DATA_LOADED, data: {}, stagedSearchCriteria });
+    if (!_.isEqual(stagedSearchCriteria, searchCriteria)) {
+        if (stagedSearchCriteria && stagedSearchCriteria.text && stagedSearchCriteria.text.length >= 3) {
+            yield put({ type: actionTypes.DATA_PROCESSING, stagedSearchCriteria });
+            const data = yield call(fetchData, stagedSearchCriteria);
+            yield put({ type: actionTypes.DATA_LOADED, data, stagedSearchCriteria });
+        } else {
+            yield put({ type: actionTypes.DATA_PROCESSING, stagedSearchCriteria });
+            yield put({ type: actionTypes.DATA_LOADED, data: {}, stagedSearchCriteria });
+        }
     }
 }
 
