@@ -5,7 +5,10 @@ export const stageSearchCriteria = (stagedSearchCriteria: any) => ({
     stagedSearchCriteria
 })
 
-export const getData = (payload: any) => ({
-    type: actionTypes.DATA_REQUESTED,
-    searchCriteria: payload
+export const fetchData = () => ({
+    type: actionTypes.DATA_REQUESTED
+})
+
+export const getPersisterData = () => ({
+    type: actionTypes.GET_PERSISTED_DATA,
 })
