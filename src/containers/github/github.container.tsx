@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchData, stageSearchCriteria, getPersisterData } from '../../actions/github/github.action'
+import { fetchData, stageSearchCriteria, getPersisterData, fetchUserDetails } from '../../actions/github/github.action'
 import _ from "lodash";
+import { Users } from "../../components/users/users.component";
 
 export const Github = () => {
     const stagedSearchCriteria = useSelector((state: any) => state.githubReducer.stagedSearchCriteria)
@@ -22,7 +23,11 @@ export const Github = () => {
         dispatch(fetchData())
     }, 500)
 
+    const handleUsersClick = useCallback((url: string) => {
+        dispatch(fetchUserDetails(url))
+    }, [])
 
+    console.log('usersData=', usersData);
     return (
         <div>
             <select onChange={(event) => handleChange(event, 'type')} value={stagedSearchCriteria.type}>
@@ -31,9 +36,10 @@ export const Github = () => {
                 <option value="issues">Issues</option>
             </select>
             <input type="search" onChange={(event) => handleChange(event, 'text')} value={stagedSearchCriteria.text} />
-            {_.map(usersData && usersData.items, (item, index) => {
+            <Users users={usersData} onClick={handleUsersClick} />
+            {/* {_.map(usersData && usersData.items, (item, index) => {
                 return <div key={index}>{item.login}</div>
-            })}
+            })} */}
         </div>
     );
 }

@@ -15,3 +15,7 @@ export const fetchData = () => ({
 export const getPersisterData = () => ({
     type: actionTypes.GET_PERSISTED_DATA,
 })
+
+export const fetchUserDetails = (url) => ({
+    type: actionTypes.USER_DATA_REQUESTED
+})

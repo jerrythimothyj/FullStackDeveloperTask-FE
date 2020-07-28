@@ -36,6 +36,11 @@ instance.interceptors.response.use(function (config) {
     return Promise.reject(error)
 })
 
+export const ajaxGet = (url: string) => instance({
+    method: 'get',
+    url
+})
+
 export const ajaxPost = (url: string, data: any) => instance({
     method: 'post',
     url,
