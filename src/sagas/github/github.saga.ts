@@ -1,8 +1,9 @@
-import { takeEvery, call, put, takeLatest } from "redux-saga/effects";
+import { takeEvery, call, put, takeLatest, select } from "redux-saga/effects";
 import {
     actionTypes
 } from "../../constants/github/github.constant";
 import { ajaxPost } from "../../services/api/api.service";
+import _ from "lodash";
 
 
 const fetchData = async (searchCriteria: any) => {
@@ -10,17 +11,25 @@ const fetchData = async (searchCriteria: any) => {
     return fetchData.data
 }
 
-function* getListSaga(data: any) {
-    if (data.searchCriteria.text && data.searchCriteria.text.length >= 3) {
-        yield put({ type: actionTypes.DATA_PROCESSING });
-        const payload = yield call(fetchData, data.searchCriteria);
-        yield put({ type: actionTypes.DATA_LOADED, payload });
-    } else {
-        yield put({ type: actionTypes.DATA_PROCESSING });
-        yield put({ type: actionTypes.DATA_LOADED, payload: {} });
+const getStagedSearchCriteria = (state: any) => state.githubReducer.stagedSearchCriteria
+const getSearchCriteria = (state: any) => state.githubReducer.searchCriteria
+
+function* fetchDataSaga() {
+    const stagedSearchCriteria = yield select(getStagedSearchCriteria)
+    const searchCriteria = yield select(getSearchCriteria)
+
+    if (!_.isEqual(stagedSearchCriteria, searchCriteria)) {
+        if (stagedSearchCriteria && stagedSearchCriteria.text && stagedSearchCriteria.text.length >= 3) {
+            yield put({ type: actionTypes.DATA_PROCESSING, stagedSearchCriteria });
+            const data = yield call(fetchData, stagedSearchCriteria);
+            yield put({ type: actionTypes.DATA_LOADED, data, stagedSearchCriteria });
+        } else {
+            yield put({ type: actionTypes.DATA_PROCESSING, stagedSearchCriteria });
+            yield put({ type: actionTypes.DATA_LOADED, data: {}, stagedSearchCriteria });
+        }
     }
 }
 
 export default function* watcherSaga() {
-    yield takeEvery(actionTypes.DATA_REQUESTED, getListSaga);
+    yield takeEvery(actionTypes.DATA_REQUESTED, fetchDataSaga);
 }

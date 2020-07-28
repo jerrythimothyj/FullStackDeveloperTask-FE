@@ -1,22 +1,25 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { getData, stageSearchCriteria } from '../../actions/github/github.action'
+import { fetchData, stageSearchCriteria, getPersisterData } from '../../actions/github/github.action'
 import _ from "lodash";
 
 export const Github = () => {
-
     const stagedSearchCriteria = useSelector((state: any) => state.githubReducer.stagedSearchCriteria)
-    const searchCriteria = useSelector((state: any) => state.githubReducer.searchCriteria)
     const usersData = useSelector((state: any) => state.githubReducer.data)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(getPersisterData());
+        dispatch(fetchData())
+    }, []);
+
     const handleChange = useCallback((event: any, field) => {
-        dispatch(stageSearchCriteria({ ...stagedSearchCriteria, [field]: event.target.value }))
-        search(event.target.value, field)
+        dispatch(stageSearchCriteria(field, event.target.value))
+        search()
     }, [])
 
-    const search = _.debounce((eventTargetValue: any, field) => {
-        dispatch(getData({ ...searchCriteria, [field]: eventTargetValue }))
+    const search = _.debounce(() => {
+        dispatch(fetchData())
     }, 500)
 
 
