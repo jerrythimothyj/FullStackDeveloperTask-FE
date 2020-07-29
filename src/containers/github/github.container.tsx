@@ -4,6 +4,7 @@ import { fetchData, stageSearchCriteria, getPersisterData } from '../../actions/
 import _ from "lodash";
 import { Repositories } from "../../components/repositories/repositories.component"
 import { Users } from "../../components/users/users.component";
+import { Issues } from "../../components/issues/issues.component";
 
 export const Github = () => {
     const stagedSearchCriteria = useSelector((state: any) => state.githubReducer.stagedSearchCriteria)
@@ -37,6 +38,7 @@ export const Github = () => {
             <input type="search" onChange={(event) => handleChange(event, 'text')} value={stagedSearchCriteria.text} />
             {searchCriteria.type === 'repositories' && <Repositories data={data} />}
             {searchCriteria.type === 'users' && <Users data={data} />}
+            {searchCriteria.type === 'issues' && <Issues data={data} />}
         </div>
     );
 }
