@@ -1,0 +1,27 @@
+.repository {
+    
+
+    width: 50%;
+
+    > div {
+        border: 1px solid grey;
+        border-radius: 11px;
+        margin: 10px;
+    
+        img {
+            width: 100%;
+            border-top-left-radius: 11px;
+            border-top-right-radius: 11px;
+        }
+    
+        div {
+            padding: 10px;
+            border-top: 1px solid grey;
+            word-break: break-word;
+        }
+    }
+
+    @media only screen and (min-width: 769px) {
+        width: 33.3%;
+    }
+}
