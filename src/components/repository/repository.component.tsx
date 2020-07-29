@@ -1,10 +1,9 @@
 import React from "react";
 import _ from "lodash";
-import "./repository.component.scss"
 
 export const Repository = (props: any) => {
     return (
-        <div className="repository">
+        <div className="card">
             <div>
                 <img src={props.data.owner.avatar_url} />
                 <div>{props.data.full_name}</div>

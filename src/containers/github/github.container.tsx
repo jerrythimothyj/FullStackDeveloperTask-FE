@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchData, stageSearchCriteria, getPersisterData } from '../../actions/github/github.action'
 import _ from "lodash";
 import { Repositories } from "../../components/repositories/repositories.component"
+import { Users } from "../../components/users/users.component";
 
 export const Github = () => {
     const stagedSearchCriteria = useSelector((state: any) => state.githubReducer.stagedSearchCriteria)
@@ -24,6 +25,8 @@ export const Github = () => {
         dispatch(fetchData())
     }, 500)
 
+    console.log('=data=', data)
+
     return (
         <div>
             <select onChange={(event) => handleChange(event, 'type')} value={stagedSearchCriteria.type}>
@@ -33,6 +36,7 @@ export const Github = () => {
             </select>
             <input type="search" onChange={(event) => handleChange(event, 'text')} value={stagedSearchCriteria.text} />
             {searchCriteria.type === 'repositories' && <Repositories data={data} />}
+            {searchCriteria.type === 'users' && <Users data={data} />}
         </div>
     );
 }
