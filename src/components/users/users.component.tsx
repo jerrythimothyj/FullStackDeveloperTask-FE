@@ -1,12 +1,12 @@
 import React from "react";
 import _ from "lodash";
-import { Repository } from "../repository/repository.component";
+import { User } from "../user/user.component";
 
-export const Repositories = (props: any) => {
+export const Users = (props: any) => {
     return (
         <div className="cards">
             {_.map(props.data && props.data.items, (item, index) => {
-                return <Repository data={item} key={index} />
+                return <User data={item} key={index} />
             })}
         </div>
     )
