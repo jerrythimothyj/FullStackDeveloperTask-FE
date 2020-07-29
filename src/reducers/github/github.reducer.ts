@@ -11,7 +11,8 @@ const initialState = {
     },
     data: {},
     searchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
-    stagedSearchCriteria: { text: "jer", type: "users", page: 1, per_page: 9 }
+    stagedSearchCriteria: { text: "jer", type: "users", page: 1, per_page: 9 },
+    userDetailsUrl: ''
 };
 
 export const githubReducer = (state = initialState, action: any) => {
@@ -24,6 +25,15 @@ export const githubReducer = (state = initialState, action: any) => {
             return { ...state, data: action.data, searchCriteria: action.stagedSearchCriteria }
         case actionTypes.STAGE_SEARCH_CRITERIA:
             return { ...state, stagedSearchCriteria: { ...state.stagedSearchCriteria, [action.field]: action.value } }
+
+        case actionTypes.USER_DETAILS_REQUESTED:
+            return { ...state, userDetailsUrl: action.url }
+        case actionTypes.USER_DETAILS_PROCESSING:
+            return { ...state }
+        case actionTypes.USER_DETAILS_LOADED:
+            // store the detail into that particular user object
+            return { ...state, userDetailsUrl: action.url }
+
         case actionTypes.GET_PERSISTED_DATA:
             return { ...state, ...state.persistedState }
         case REHYDRATE:

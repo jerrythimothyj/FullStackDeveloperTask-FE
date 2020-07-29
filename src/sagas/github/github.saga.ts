@@ -1,8 +1,9 @@
+import axios from "axios";
 import { takeEvery, call, put, takeLatest, select } from "redux-saga/effects";
 import {
     actionTypes
 } from "../../constants/github/github.constant";
-import { ajaxPost } from "../../services/api/api.service";
+import { ajaxPost, ajaxGet } from "../../services/api/api.service";
 import _ from "lodash";
 
 
@@ -30,6 +31,24 @@ function* fetchDataSaga() {
     }
 }
 
+const fetchUserDetails = async (userDetailsUrl: string) => {
+    const fetchUserDetails = await axios.get(userDetailsUrl)
+    return fetchUserDetails.data
+}
+
+const getUserDetailsUrl = (state: any) => state.githubReducer.userDetailsUrl
+
+function* fetchUserDetailsSaga() {
+    const userDetailsUrl = yield select(getUserDetailsUrl)
+
+    yield put({ type: actionTypes.USER_DETAILS_PROCESSING });
+    const data = yield call(fetchUserDetails, userDetailsUrl);
+    yield put({ type: actionTypes.USER_DETAILS_LOADED, data });
+
+}
+}
+
 export default function* watcherSaga() {
     yield takeEvery(actionTypes.DATA_REQUESTED, fetchDataSaga);
+    yield takeEvery(actionTypes.USER_DETAILS_REQUESTED, fetchUserDetailsSaga);
 }

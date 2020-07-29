@@ -7,7 +7,7 @@ export const Users = (props: any) => {
     return (
         <div className="users">
             {_.map(props.users && props.users.items, (item, index) => {
-                return <Card key={index} data={item} onClick={props.onClick} />
+                return <Card key={index} data={item} onViewMoreDetailsClick={props.onViewMoreDetailsClick} />
             })}
         </div>
     )

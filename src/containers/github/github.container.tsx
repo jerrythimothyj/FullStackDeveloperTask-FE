@@ -23,7 +23,7 @@ export const Github = () => {
         dispatch(fetchData())
     }, 500)
 
-    const handleUsersClick = useCallback((url: string) => {
+    const handleViewMoreUserDetailsClick = useCallback((url: string) => {
         dispatch(fetchUserDetails(url))
     }, [])
 
@@ -36,7 +36,7 @@ export const Github = () => {
                 <option value="issues">Issues</option>
             </select>
             <input type="search" onChange={(event) => handleChange(event, 'text')} value={stagedSearchCriteria.text} />
-            <Users users={usersData} onClick={handleUsersClick} />
+            <Users users={usersData} onViewMoreDetailsClick={handleViewMoreUserDetailsClick} />
             {/* {_.map(usersData && usersData.items, (item, index) => {
                 return <div key={index}>{item.login}</div>
             })} */}
