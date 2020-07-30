@@ -1,8 +1,10 @@
+@import '../../styles/variables';
+
 .input {
-    border: 1px solid grey;
-    padding: 16px;
+    border: 1px solid $color-grey;
     border-radius: 3px;
-    margin: 10px 0;
     flex: 1;
+    margin: 10px 0;
     max-width: 300px;
+    padding: 16px;
 }

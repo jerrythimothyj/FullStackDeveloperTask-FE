@@ -1,5 +1,6 @@
-@import "./styles/cards";
-@import "./styles/flex";
+@import './styles/variables';
+@import './styles/cards';
+@import './styles/flex';
 
 .App-logo {
   height: 40vmin;
@@ -13,14 +14,13 @@
 }
 
 .App-header {
+  align-items: center;
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .App-link {
@@ -31,22 +31,23 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 .loader {
-  position: fixed;
-  top: 0;
-  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 9999;
 }
 
 .Toastify__toast-body {
-  white-space: pre-line;
   text-align: left;
+  white-space: pre-line;
 }

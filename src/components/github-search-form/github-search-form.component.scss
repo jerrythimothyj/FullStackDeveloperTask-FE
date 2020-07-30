@@ -1,23 +1,24 @@
+@import '../../styles/variables';
+
 .github-search-form {
     margin: 10px;
 
     img {
-        max-width: 64px;
-        max-height: 64px;
         margin-right: 20px;
+        max-height: 64px;
+        max-width: 64px;
     }
-    
 
     &__title {
-        display:flex;
-        
+        display: flex;
+
         .title__heading {
-            font-weight: bold;
             font-size: 36px;
+            font-weight: bold;
         }
 
         .title__caption {
-            color: grey
+            color: $color-grey;
         }
     }
 }

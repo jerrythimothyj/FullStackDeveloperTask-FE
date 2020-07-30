@@ -2,5 +2,11 @@
     "extends": [
         "stylelint-config-standard",
         "stylelint-config-sass-guidelines"
-    ]
+    ],
+    "rules": {
+        "indentation": null,
+        "max-nesting-depth": null,
+        "selector-class-pattern": null,
+        "selector-max-compound-selectors": null
+    }
 }

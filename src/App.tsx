@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Loader from "react-loader"
 import { ToastContainer, toast } from "react-toastify"
-import logo from './logo.svg';
-// import { fetchGithubUsers } from './services/github/github.service';
 import { showLoaderCountState } from './services/api/api.service';
 import { showToasterState } from './services/toaster/toaster.service';
 import "react-toastify/dist/ReactToastify.css"
@@ -31,7 +29,6 @@ function App() {
           break;
       }
     })
-    // fetchGithubUsers("tim", "users", 1, 100)
   }, [])
 
   return (

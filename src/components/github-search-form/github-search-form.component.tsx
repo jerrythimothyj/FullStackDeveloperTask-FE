@@ -22,7 +22,7 @@ export const GithubSearchForm = (props: any) => {
     return <div className="github-search-form">
         <div className="github-search-form__title">
             <div>
-                <img src={logo} />
+                <img src={logo} alt="logo" />
             </div>
             <div>
                 <div className="title__heading">
