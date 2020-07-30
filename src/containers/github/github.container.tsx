@@ -27,8 +27,6 @@ export const Github = () => {
         dispatch(fetchData())
     }, 500)
 
-    console.log('=data=', data)
-
     return (
         <div>
             <GithubSearchForm onChange={handleChange} data={stagedSearchCriteria} />
