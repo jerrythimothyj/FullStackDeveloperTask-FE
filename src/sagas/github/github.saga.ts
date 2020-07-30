@@ -6,7 +6,7 @@ import { ajaxPost } from "../../services/api/api.service";
 import _ from "lodash";
 
 
-const fetchData = async (searchCriteria: any) => {
+export const fetchData = async (searchCriteria: any) => {
     const fetchData = await ajaxPost('search', searchCriteria)
     return fetchData.data
 }
@@ -14,7 +14,7 @@ const fetchData = async (searchCriteria: any) => {
 const getStagedSearchCriteria = (state: any) => state.githubReducer.stagedSearchCriteria
 const getSearchCriteria = (state: any) => state.githubReducer.searchCriteria
 
-function* fetchDataSaga() {
+export function* fetchDataSaga() {
     const stagedSearchCriteria = yield select(getStagedSearchCriteria)
     const searchCriteria = yield select(getSearchCriteria)
 

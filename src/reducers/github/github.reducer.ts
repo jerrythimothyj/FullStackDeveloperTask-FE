@@ -4,8 +4,9 @@ import {
 } from "../../constants/github/github.constant";
 import _ from 'lodash';
 
-const initialState = {
+export const initialState = {
     persistedState: {
+        data: {},
         searchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
         stagedSearchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
     },

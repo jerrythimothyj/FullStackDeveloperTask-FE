@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
     "@types/node": "^12.12.53",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
@@ -28,7 +25,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom-fourteen",
+    "test:coverage": "react-scripts test --env=jsdom-fourteen --verbose --coverage",
     "eject": "react-scripts eject",
     "lint": "node ./node_modules/eslint/bin/eslint.js \"src/**/*.ts\" \"src/**/*.tsx\" --config .eslintrc.js && node ./node_modules/stylelint/bin/stylelint.js \"src/**/*.css\" \"src/**/*.scss\" --config .stylelintrc.json",
     "lint:fix": "node ./node_modules/eslint/bin/eslint.js \"src/**/*.ts\" \"src/**/*.tsx\" --config .eslintrc.js --fix && node ./node_modules/stylelint/bin/stylelint.js \"src/**/*.css\" \"src/**/*.scss\" --config .stylelintrc.json --fix"
@@ -54,6 +52,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.7",
+    "@types/jest": "^24.9.1",
     "@types/lodash": "^4.14.158",
     "@types/react-loader": "^2.4.4",
     "@types/react-redux": "^7.1.9",
@@ -61,10 +62,12 @@
     "@types/redux-logger": "^3.0.8",
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
+    "axios-mock-adapter": "^1.18.2",
     "eslint": "^7.5.0",
     "husky": "^4.2.5",
     "react-loader": "^2.4.7",
     "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4",
     "stylelint": "^13.6.1",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "stylelint-config-standard": "^20.0.0",

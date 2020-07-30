@@ -1,0 +1,14 @@
+export const initialState = {
+    persistedState: {
+        data: {},
+        searchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
+        stagedSearchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
+    },
+    data: {},
+    searchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
+    stagedSearchCriteria: { text: "", type: "users", page: 1, per_page: 9 }
+};
+
+export const stagedSearchCriteria = { text: "jerrythimothy", type: "users", page: 1, per_page: 9 }
+
+export const data = { "total_count": 2, "incomplete_results": false, "items": [{ "login": "jerrythimothyj", "id": 16850946, "node_id": "MDQ6VXNlcjE2ODUwOTQ2", "avatar_url": "https://avatars2.githubusercontent.com/u/16850946?v=4", "gravatar_id": "", "url": "https://api.github.com/users/jerrythimothyj", "html_url": "https://github.com/jerrythimothyj", "followers_url": "https://api.github.com/users/jerrythimothyj/followers", "following_url": "https://api.github.com/users/jerrythimothyj/following{/other_user}", "gists_url": "https://api.github.com/users/jerrythimothyj/gists{/gist_id}", "starred_url": "https://api.github.com/users/jerrythimothyj/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/jerrythimothyj/subscriptions", "organizations_url": "https://api.github.com/users/jerrythimothyj/orgs", "repos_url": "https://api.github.com/users/jerrythimothyj/repos", "events_url": "https://api.github.com/users/jerrythimothyj/events{/privacy}", "received_events_url": "https://api.github.com/users/jerrythimothyj/received_events", "type": "User", "site_admin": false, "score": 1 }, { "login": "jerrythimothy", "id": 1439347, "node_id": "MDQ6VXNlcjE0MzkzNDc=", "avatar_url": "https://avatars0.githubusercontent.com/u/1439347?v=4", "gravatar_id": "", "url": "https://api.github.com/users/jerrythimothy", "html_url": "https://github.com/jerrythimothy", "followers_url": "https://api.github.com/users/jerrythimothy/followers", "following_url": "https://api.github.com/users/jerrythimothy/following{/other_user}", "gists_url": "https://api.github.com/users/jerrythimothy/gists{/gist_id}", "starred_url": "https://api.github.com/users/jerrythimothy/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/jerrythimothy/subscriptions", "organizations_url": "https://api.github.com/users/jerrythimothy/orgs", "repos_url": "https://api.github.com/users/jerrythimothy/repos", "events_url": "https://api.github.com/users/jerrythimothy/events{/privacy}", "received_events_url": "https://api.github.com/users/jerrythimothy/received_events", "type": "User", "site_admin": false, "score": 1 }] }
