@@ -1,6 +1,20 @@
 import React from "react";
 
-export const Issue = (props: any) => {
+type Props = {
+    data: {
+        user: {
+            avatar_url: string,
+            login: string
+        },
+        title: string,
+        state: string,
+        number: string,
+        comments: string,
+        html_url: string,
+    }
+}
+
+export const Issue = (props: Props) => {
     return (
         <div className="card">
             <div>

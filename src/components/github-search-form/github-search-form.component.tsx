@@ -4,7 +4,15 @@ import "./github-search-form.component.scss"
 import { Select } from "../select/select.component";
 import { Input } from "../input/input.component";
 
-export const GithubSearchForm = (props: any) => {
+type Props = {
+    onChange: Function,
+    data: {
+        text: string,
+        type: string
+    }
+}
+
+export const GithubSearchForm = (props: Props) => {
     const options = [
         {
             value: "users",

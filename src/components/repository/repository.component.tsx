@@ -1,6 +1,23 @@
 import React from "react";
 
-export const Repository = (props: any) => {
+type Props = {
+    data: {
+        owner: {
+            avatar_url: string,
+            login: string
+        },
+        full_name: string,
+        homepage: string,
+        forks_count: string,
+        name: string,
+        open_issues_count: string,
+        watchers_count: string,
+        stargazers_count: string,
+        html_url: string
+    }
+}
+
+export const Repository = (props: Props) => {
     return (
         <div className="card">
             <div>

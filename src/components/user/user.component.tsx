@@ -1,6 +1,14 @@
 import React from "react";
 
-export const User = (props: any) => {
+type Props = {
+    data: {
+        avatar_url: string,
+        login: string,
+        html_url: string
+    }
+}
+
+export const User = (props: Props) => {
     return (
         <div className="card">
             <div>
