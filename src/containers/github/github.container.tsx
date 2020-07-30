@@ -5,6 +5,7 @@ import _ from "lodash";
 import { Repositories } from "../../components/repositories/repositories.component"
 import { Users } from "../../components/users/users.component";
 import { Issues } from "../../components/issues/issues.component";
+import { GithubSearchForm } from "../../components/github-search-form/github-search-form.component";
 
 export const Github = () => {
     const stagedSearchCriteria = useSelector((state: any) => state.githubReducer.stagedSearchCriteria)
@@ -30,12 +31,7 @@ export const Github = () => {
 
     return (
         <div>
-            <select onChange={(event) => handleChange(event, 'type')} value={stagedSearchCriteria.type}>
-                <option value="users">Users</option>
-                <option value="repositories">Repositories</option>
-                <option value="issues">Issues</option>
-            </select>
-            <input type="search" onChange={(event) => handleChange(event, 'text')} value={stagedSearchCriteria.text} />
+            <GithubSearchForm onChange={handleChange} data={stagedSearchCriteria} />
             {searchCriteria.type === 'repositories' && <Repositories data={data} />}
             {searchCriteria.type === 'users' && <Users data={data} />}
             {searchCriteria.type === 'issues' && <Issues data={data} />}
