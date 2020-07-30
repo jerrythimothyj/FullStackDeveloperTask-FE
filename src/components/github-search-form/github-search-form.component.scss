@@ -1,0 +1,23 @@
+.github-search-form {
+    margin: 10px;
+
+    img {
+        max-width: 64px;
+        max-height: 64px;
+        margin-right: 20px;
+    }
+    
+
+    &__title {
+        display:flex;
+        
+        .title__heading {
+            font-weight: bold;
+            font-size: 36px;
+        }
+
+        .title__caption {
+            color: grey
+        }
+    }
+}
