@@ -31,8 +31,11 @@ instance.interceptors.response.use(function (config) {
 }, function (error) {
     showLoaderCount--;
     showLoaderCountSubject.next(showLoaderCount)
-    showToasterSubject.next({ type: 'error', value: _.join(_.map(error.response.data.errors, _.property('msg')), "\n\n") })
-
+    if (error.response.data.errors) {
+        showToasterSubject.next({ type: 'error', value: _.join(_.map(error.response.data.errors, _.property('msg')), "\n\n") })
+    } else {
+        showToasterSubject.next({ type: 'error', value: JSON.stringify(error.response.data) })
+    }
     return Promise.reject(error)
 })
 
