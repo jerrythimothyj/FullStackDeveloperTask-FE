@@ -23,9 +23,13 @@
 ![2 input fields: On the input box, the user types the text that they want to search; On the combo box the user selects the entity they want such as Users, Repositories or Issues.](http://bigjapps.com/images/Untitled.gif)
 
 
+### When the user starts typing, make a backend call after a debounce.
 
+![When the user starts typing, make a backend call after a debounce.](http://bigjapps.com/images/Untitled1.gif)
 
-dsfdsf
+### The output is a list of cards in a 3 column layout as default and 2 column layout when the screen's width is less than or equal to 768px.
+
+![The output is a list of cards in a 3 column layout as default and 2 column layout when the screen's width is less than or equal to 768px.](http://bigjapps.com/images/Untitled2.gif)
 
 
 
