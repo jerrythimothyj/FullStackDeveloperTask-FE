@@ -31,6 +31,26 @@
 
 ![The output is a list of cards in a 3 column layout as default and 2 column layout when the screen's width is less than or equal to 768px.](http://bigjapps.com/images/Untitled2.gif)
 
+### The search should happen after the user has typed 3 or more characters.
+![The search should happen after the user has typed 3 or more characters.](http://bigjapps.com/images/Untitled3.gif)
+
+
+### The search should happen after the user has typed 3 or more characters.
+![The search should happen after the user has typed 3 or more characters.](http://bigjapps.com/images/Untitled3.gif)
+
+### If the user clears the input or types less than three characters, clear the results and show the empty screen.
+![If the user clears the input or types less than three characters, clear the results and show the empty screen.](http://bigjapps.com/images/Untitled4.gif)
+
+### Display the details of the entities returned in the cards.
+![Display the details of the entities returned in the cards.](http://bigjapps.com/images/Untitled5.gif)
+
+### Show the loading status to the user.
+![Show the loading status to the user.](http://bigjapps.com/images/Untitled6.gif)
+
+### Show the error / validation messages to the user.
+![Show the error / validation messages to the user.](http://bigjapps.com/images/Untitled7.gif)
+
+`Note:` The above scenario is made to fail on purpose by modifying the code
 
 
 # Available Scripts
