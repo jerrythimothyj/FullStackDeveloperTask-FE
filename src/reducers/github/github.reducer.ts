@@ -6,12 +6,12 @@ import _ from 'lodash';
 
 const initialState = {
     persistedState: {
-        searchCriteria: { text: "", type: "users1", page: 1, per_page: 9 },
-        stagedSearchCriteria: { text: "", type: "users1", page: 1, per_page: 9 },
+        searchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
+        stagedSearchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
     },
     data: {},
-    searchCriteria: { text: "", type: "users1", page: 1, per_page: 9 },
-    stagedSearchCriteria: { text: "", type: "users1", page: 1, per_page: 9 }
+    searchCriteria: { text: "", type: "users", page: 1, per_page: 9 },
+    stagedSearchCriteria: { text: "", type: "users", page: 1, per_page: 9 }
 };
 
 export const githubReducer = (state = initialState, action: any) => {
