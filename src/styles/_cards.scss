@@ -1,3 +1,5 @@
+@import '../styles/variables';
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -7,19 +9,19 @@
         width: 50%;
 
         > div {
-            border: 1px solid grey;
+            border: 1px solid $color-grey;
             border-radius: 11px;
             margin: 10px;
-        
+
             img {
-                width: 100%;
                 border-top-left-radius: 11px;
                 border-top-right-radius: 11px;
+                width: 100%;
             }
-        
+
             div {
+                border-top: 1px solid $color-grey;
                 padding: 10px;
-                border-top: 1px solid grey;
                 word-break: break-word;
             }
         }

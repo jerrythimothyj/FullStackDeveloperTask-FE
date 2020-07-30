@@ -1,4 +1,4 @@
-import { takeEvery, call, put, takeLatest, select } from "redux-saga/effects";
+import { takeEvery, call, put, select } from "redux-saga/effects";
 import {
     actionTypes
 } from "../../constants/github/github.constant";
