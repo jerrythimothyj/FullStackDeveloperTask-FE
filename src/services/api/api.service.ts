@@ -3,7 +3,7 @@ import { Subject } from "rxjs"
 import _ from "lodash"
 import { showToasterSubject } from "../toaster/toaster.service"
 
-const instance = axios.create({
+export const instance = axios.create({
     baseURL: "http://localhost:4100/api/"
 });
 let showLoaderCount = 0;
