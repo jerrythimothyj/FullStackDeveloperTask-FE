@@ -103,6 +103,7 @@ So, the story goes like this:
 - Name of the user comes from the Users api of Github and not the Search api. What we can do is that we can have a button to open more details and retrieve the User details from the Users api.:construction:
 - This is not a server side rendering app.
 - Need to run the react app after the expressjs server is running on 4100.
+- Pagination is not implemented and we are displaying only 9 records per page and only 1st page is displayed.:bow:
 
 <br/><br/>
 ### To Run:
