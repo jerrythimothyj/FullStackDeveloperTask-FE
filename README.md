@@ -103,3 +103,17 @@ So, the story goes like this:
 - Name of the user comes from the Users api of Github and not the Search api. What we can do is that we can have a button to open more details and retrieve the User details from the Users api.:construction:
 - This is not a server side rendering app.
 - Need to run the react app after the expressjs server is running on 4100.
+
+<br/><br/>
+### To Run:
+Just like any other react application:
+- Clone the repo;
+- npm i
+- npm run start
+
+<br/><br/>
+### Other commands:
+- npm run test
+- npm run test:coverage
+- npm run lint
+- npm run lint:fix
