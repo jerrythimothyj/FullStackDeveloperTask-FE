@@ -101,3 +101,5 @@ So, the story goes like this:
 - After an error/validation occurs, the working condition is not reset. Just kept it like that. Have to correct it in the sagas.
 - Less unit testing. I prefer more of E2E's with Selenium or Puppeteer.
 - Name of the user comes from the Users api of Github and not the Search api. What we can do is that we can have a button to open more details and retrieve the User details from the Users api.:construction:
+- This is not a server side rendering app.
+- Need to run the react app after the expressjs server is running on 4100.
