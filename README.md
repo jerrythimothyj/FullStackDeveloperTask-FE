@@ -108,7 +108,8 @@ So, the story goes like this:
 <br/><br/>
 ### To Run:
 Just like any other react application:
-- Clone the repo;
+- *Please make sure that the backend node-expressjs server is running at 4100. Follow these steps: https://github.com/jerrythimothyj/FullStackDeveloperTask-BE#to-run*
+- And then, clone this repo
 - npm i
 - npm run start
 
